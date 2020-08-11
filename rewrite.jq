@@ -7,6 +7,7 @@ if has("commits") then
     "themeColor": "0072C6",
     "title": "Activity on repository ${GITHUB_REPOSITORY}",
     "text": ("Last commit message: **" +  .head_commit.message + "**
+    
     Bla"),
     "test": $ENV.GOPATH,
     "potentialAction": [
