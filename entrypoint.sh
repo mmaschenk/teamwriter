@@ -30,4 +30,9 @@ EOD
 
 cd $GITHUB_WORKSPACE
 ls
-#git status
+
+if git status; then
+  echo "Yes for git"
+else
+  echo "No git"
+fi
