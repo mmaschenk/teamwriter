@@ -28,7 +28,8 @@ else
     "themeColor": "0072C6",
     "title": "Activity on repository ${GITHUB_REPOSITORY}",
     "text": ("Last commit message: **Dummy message**
-    Bla"),
+
+    Bla2"),
     "test": $ENV.GOPATH,
     "potentialAction": [
       {
