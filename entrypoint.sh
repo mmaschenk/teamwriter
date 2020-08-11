@@ -6,3 +6,5 @@ echo "::set-output name=time::$time"
 
 echo "Here's the environment"
 env
+
+which curl
