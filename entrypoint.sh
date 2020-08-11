@@ -29,4 +29,5 @@ cat << EOD | curl -H 'Content-Type: application/json' -d @- $webhook_url
 EOD
 
 cd $GITHUB_WORKSPACE
-git status
+ls
+#git status
