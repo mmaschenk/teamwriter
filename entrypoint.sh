@@ -7,7 +7,14 @@ echo "::set-output name=time::$time"
 echo "Here's the environment"
 env
 
-which curl
+
+cd $GITHUB_WORKSPACE
+if git status; then
+  echo "Yes for git"
+  git log
+else
+  echo "No git"
+fi
 
 cat << EOD | curl -H 'Content-Type: application/json' -d @- $webhook_url
 {
@@ -28,11 +35,3 @@ cat << EOD | curl -H 'Content-Type: application/json' -d @- $webhook_url
 }
 EOD
 
-cd $GITHUB_WORKSPACE
-ls
-
-if git status; then
-  echo "Yes for git"
-else
-  echo "No git"
-fi
