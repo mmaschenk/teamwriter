@@ -8,7 +8,7 @@ if has("commits") then
     "title": "Activity on repository ${GITHUB_REPOSITORY}",
     "text": ("Last commit message: **" +  .head_commit.message + "**
     
-    Bla"),
+    Blab"),
     "test": $ENV.GOPATH,
     "potentialAction": [
       {
