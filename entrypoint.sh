@@ -23,9 +23,10 @@ echo "Json is: $json"
 echo $json | curl -H 'Content-Type: application/json' -d @- $webhook_url
 
 echo 'Starting---'
-#cat ${GITHUB_EVENT_PATH}
 pwd
 ls
 echo "And root"
 ls /
 echo 'Done---'
+cat ${GITHUB_EVENT_PATH}
+
