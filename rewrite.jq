@@ -1,6 +1,11 @@
 { 
     "@context": "https://schema.org/extensions",  
-    "aa": [.commits[] | [.author.name, .author.email]],
+    "commits": has("commits"),
+    "aa": (if has("commits") then
+             [.commits[] | [.author.name, .author.email]]
+           else
+             ""
+           end),
     "@type": "MessageCard",
     "themeColor": "0072C6",
     "title": "Activity on repository ${GITHUB_REPOSITORY}",
