@@ -14,35 +14,18 @@ cat << EOD | curl -H 'Content-Type: application/json' -d @- $webhook_url
     "@context": "https://schema.org/extensions",
     "@type": "MessageCard",
     "themeColor": "0072C6",
-    "title": "Visit the Outlook Dev Portal",
-    "text": "Click **Learn More** to learn more about Actionable Messages!",
+    "title": "Activity on repository ${GITHUB_REPOSITORY}",
+    "text": "Here we go",
     "potentialAction": [
       {
-        "@type": "ActionCard",
-        "name": "Send Feedback",
-        "inputs": [
-          {
-            "@type": "TextInput",
-            "id": "feedback",
-            "isMultiline": true,
-            "title": "Let us know what you think about Actionable Messages"
-          }
-        ],
-        "actions": [
-          {
-            "@type": "HttpPOST",
-            "name": "Send Feedback",
-            "isPrimary": true,
-            "target": "http://..."
-          }
-        ]
-      },
-      {
         "@type": "OpenUri",
-        "name": "Learn More",
+        "name": "Got to repository",
         "targets": [
-          { "os": "default", "uri": "https://docs.microsoft.com/outlook/actionable-messages" }
+          { "os": "default", "uri": "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}" }
         ]
       }
     ]
 }
+
+cd $GITHUB_WORKSPACE
+git status
