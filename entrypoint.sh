@@ -16,7 +16,7 @@ else
   echo "No git"
 fi
 
-json=$(jq -f rewrite.jq ${GITHUB_EVENT_PATH})
+json=$(jq -f /rewrite.jq ${GITHUB_EVENT_PATH})
 
 echo "Json is: $json"
 
