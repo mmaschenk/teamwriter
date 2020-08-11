@@ -1,16 +1,28 @@
+
+
 if has("commits") then 
 { 
     "@context": "https://schema.org/extensions",  
     "commits": has("commits"),
     "sections":  [.commits[] | 
-       { "activityTitle": .message,
-         "facts": [
+       (.message | split("\n")) as $longmessage |
+       { "facts": [
+           { "name": "Commit message",
+             "value": .message | split("\n")[0]
+           },
            { "name": "Author",
              "value": .author.name },
            { "name": "SHA",
-             "value": .id },
-           { "name": "date",
-             "value": .timestamp}
+             "value": ("[" + .id + "](" + .url  + ")")},
+           { "name": "Date",
+             "value": .timestamp},
+            if ($longmessage | length > 1) then 
+              { "name": "Long commit message",
+                "value": ("<pre>" + 
+                          ($longmessage[1:] | join("\n") | sub("^\n+"; "")) +
+                          "</pre>")
+              } 
+            else empty end 
          ]
        }
       ],
