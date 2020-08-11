@@ -9,7 +9,7 @@ env
 
 which curl
 
-cat << EOD | curl -d @- $webhook_url
+cat << EOD | curl -H 'Content-Type: application/json' -d @- $webhook_url
 {
     "@context": "https://schema.org/extensions",
     "@type": "MessageCard",
