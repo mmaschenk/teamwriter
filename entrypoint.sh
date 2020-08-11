@@ -35,3 +35,4 @@ cat << EOD | curl -H 'Content-Type: application/json' -d @- $webhook_url
 }
 EOD
 
+cat ${GITHUB_EVENT_PATH}
